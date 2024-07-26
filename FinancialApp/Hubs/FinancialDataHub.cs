@@ -27,6 +27,7 @@ namespace FinancialApp.Hubs
 
         public void OnNext(PriceUpdate value)
         {
+            //Efficiently handle broadcasting updated to 1000+ subscribers
             Clients.All.SendAsync("ReceivePriceUpdate", value);
         }
 
